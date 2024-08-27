@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const appUrl = strapi.config.get('plugin.custom-dashboard.appUrl');
+const appApiKey = strapi.config.get('plugin.custom-dashboard.appApiKey');
+
 
 const Dashboard = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(appUrl);
   const strapiEndpoint = `https://uat-moviebuff-audio.moviebuff.com/api/custom-list-csv`;
   const strapiEndpoint1 = `https://uat-moviebuff-audio.moviebuff.com/api/device-session-list-csv`;
   // const strapiEndpoint = `${process.env.STRAPI_API_URL}/api/custom-list-csv`;
-
+console.log('appUrl', appUrl);
   const exportTheatres = async () => {
     setMessage('Exporting theatres...');
     try {
