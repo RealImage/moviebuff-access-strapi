@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "application_constants",
+  "info": {
+    "singularName": "application-constant",
+    "pluralName": "application-constants",
+    "displayName": "Application Constant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "radius": {
+      "type": "string"
+    },
+    "ios_version": {
+      "type": "string"
+    },
+    "android_version": {
+      "type": "string"
+    }
+  }
+}

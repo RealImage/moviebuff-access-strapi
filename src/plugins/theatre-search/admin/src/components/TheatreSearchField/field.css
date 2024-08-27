@@ -1,0 +1,24 @@
+.dropdown-wrapper {
+    padding-bottom: 12px;
+     }
+     .dropdown_select{
+       width: 100%;
+     }
+     .ant-select .ant-select-selector {
+       border-radius: 4px !important; /* Set this to your desired radius */
+       font-size: 14px !important;
+     }
+    
+      .dropdown-label {
+       display: block;
+       margin-bottom: 5px;
+       font-size: 0.75rem;
+       line-height: 1.33;
+       font-weight: 600;
+       color: rgb(50, 50, 77);
+     }
+     
+     .required-asterisk {
+       color: red;
+     }
+     

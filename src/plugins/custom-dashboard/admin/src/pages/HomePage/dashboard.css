@@ -1,0 +1,17 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dashboard-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  

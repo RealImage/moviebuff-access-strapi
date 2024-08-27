@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_array_component_screens",
+  "info": {
+    "displayName": "Screen",
+    "icon": "slideshow",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "audio_device_id": {
+      "type": "string"
+    },
+    "audio_device_active_status": {
+      "type": "boolean",
+      "default": false
+    },
+    "installed_date": {
+      "type": "date"
+    },
+    "Installed_by": {
+      "type": "string"
+    },
+    "screen_id": {
+      "type": "string",
+      "unique": false,
+      "required": false
+    }
+  }
+}
