@@ -7,9 +7,9 @@ module.exports = {
   async theatreList(ctx, next) {
     try {
       let { location, search } = ctx.query;
-      if (location == '13.0478078,80.0442001,1000000.0') {
-        location = null;
-      }
+      // if (location == '13.0478078,80.0442001,1000000.0') {
+      //   location = null;
+      // }
       let strapiEndpoint = null;
       if (location) {
         strapiEndpoint = `${process.env.STRAPI_API_URL}/api/theatres?pagination[pageSize]=100&populate=*&$location[theatre_location]=${location}`;
