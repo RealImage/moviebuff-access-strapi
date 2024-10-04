@@ -48,6 +48,17 @@ npm run develop
 Managing the Application with PM2
 PM2 is used to manage the application in a production environment.
 
+There is a know issue with location plugin with strapi - if you face any issues related location data run this query
+
+```
+UPDATE theatres
+SET theatre_location = jsonb_build_object(
+    'lat', (theatre_location->>'lat')::float,
+    'lng', (theatre_location->>'lng')::float
+)
+WHERE theatre_location IS NOT NULL;
+```
+
 Start All Applications:
 ```
 pm2 start all
