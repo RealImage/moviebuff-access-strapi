@@ -61,7 +61,7 @@ module.exports = ({ env }) => {
         port: env.int("DATABASE_PORT", 5432),
         database: env("DATABASE_NAME", "strapi"),
         user: env("DATABASE_USERNAME", "strapi"),
-        password: "grouthloopdb123",
+        password: env("DATABASE_PASSWORD", "strapi"),
         ssl: true && {
           ca: readFileSync("config/global-bundle.pem").toString(),
           rejectUnauthorized: false,
