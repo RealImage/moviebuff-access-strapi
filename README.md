@@ -39,6 +39,7 @@ If you're developing on the server, make sure to stop the PM2 process before run
 ```
 pm2 stop <appname>
 npm run develop
+pm2 start <appname>
 ```
 
 ### `Production`

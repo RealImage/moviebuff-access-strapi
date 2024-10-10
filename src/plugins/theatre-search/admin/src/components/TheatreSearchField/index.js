@@ -33,7 +33,7 @@ const TheatreSearchField = ({ value, onChange, name }) => {
         );
       } else if (query.includes("id:") || query.includes("ID:")) {
         response = await axios.get(
-          `https://dimensions.qubewire.com/v1/facilities/search?q=${query}&tag=id:${
+          `https://dimensions.qubewire.com/v1/facilities/search?tag=uuid:${
             query.split(":")[1]
           }&ps=150&offset=`,
           {
@@ -44,7 +44,7 @@ const TheatreSearchField = ({ value, onChange, name }) => {
         );
       } else {
         response = await axios.get(
-          `https://dimensions.qubewire.com/v1/facilities/search?q=${query}&tag=alternateNames:${query}&ps=150&offset=`,
+          `https://dimensions.qubewire.com/v1/facilities/search?q=${query}&ps=150&offset=`,
           {
             headers: {
               Authorization: "Bearer a53df5a2-620e-4e7d-bc68-195ba44b843c",
