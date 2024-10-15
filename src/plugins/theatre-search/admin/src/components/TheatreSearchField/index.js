@@ -33,7 +33,7 @@ const TheatreSearchField = ({ value, onChange, name }) => {
         );
       } else if (query.includes("id:") || query.includes("ID:")) {
         response = await axios.get(
-          `https://dimensions.qubewire.com/v1/facilities/search?tag=uuid:${
+          `https://dimensions.qubewire.com/v1/facilities/search?tag=id:${
             query.split(":")[1]
           }&ps=150&offset=`,
           {
@@ -66,6 +66,7 @@ const TheatreSearchField = ({ value, onChange, name }) => {
           auditoriums: theatre.auditoriums || [],
           name: theatre.name || [],
           city: theatre.address ? theatre.address.city.name : "",
+          identifiers: theatre.identifiers || [],
         }));
         setOptions(
           formattedOptions.sort((a, b) => a.city.localeCompare(b.city))
@@ -98,6 +99,7 @@ const TheatreSearchField = ({ value, onChange, name }) => {
           screen_id: screen.id,
         })
       );
+      const selected_theatre_id = selectedOption.identifiers.find(identifier => identifier.includes('cinemadb-io'));
       onChange({ target: { name, value: selectedOption.label } });
       onChange({
         target: { name: "description", value: selectedOption.description },
@@ -120,7 +122,7 @@ const TheatreSearchField = ({ value, onChange, name }) => {
       onChange({
         target: { name: "theatre_display_name", value: selectedOption.name },
       });
-      onChange({ target: { name: "theatre_id", value: selectedOption.value } });
+      onChange({ target: { name: "theatre_id", value: selected_theatre_id } });
       onChange({ target: { name: "Screens", value: screen_details } });
       setInputValue(selectedOption.label);
     } else {
