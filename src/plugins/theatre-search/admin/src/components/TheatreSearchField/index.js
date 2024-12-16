@@ -57,7 +57,7 @@ const TheatreSearchField = ({ value, onChange, name }) => {
         // console.log(`response of ${query}`, response.data.data);
         console.log(`response of ${query}`, response.data.data.length);
         formattedOptions = response.data.data.map((theatre) => ({
-          value: theatre.id || null,
+          value: theatre.uuid || null,
           label: theatre.address
             ? `${theatre.name} - ${theatre.address.city.name}`
             : theatre.name,
@@ -66,7 +66,7 @@ const TheatreSearchField = ({ value, onChange, name }) => {
           auditoriums: theatre.auditoriums || [],
           name: theatre.name || [],
           city: theatre.address ? theatre.address.city.name : "",
-          identifiers: theatre.identifiers || [],
+          identifiers: theatre.identifiers || [], 
         }));
         setOptions(
           formattedOptions.sort((a, b) => a.city.localeCompare(b.city))
@@ -122,7 +122,7 @@ const TheatreSearchField = ({ value, onChange, name }) => {
       onChange({
         target: { name: "theatre_display_name", value: selectedOption.name },
       });
-      onChange({ target: { name: "theatre_id", value: selected_theatre_id } });
+      onChange({ target: { name: "theatre_id", value: selectedOption.value } });
       onChange({ target: { name: "Screens", value: screen_details } });
       setInputValue(selectedOption.label);
     } else {
