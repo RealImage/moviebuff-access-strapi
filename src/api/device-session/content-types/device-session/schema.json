@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "device_sessions",
+  "info": {
+    "singularName": "device-session",
+    "pluralName": "device-sessions",
+    "displayName": "Device Sessions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "device_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "session_start": {
+      "type": "datetime"
+    },
+    "session_end": {
+      "type": "datetime"
+    },
+    "os": {
+      "type": "string"
+    },
+    "theatre_name": {
+      "type": "string"
+    },
+    "screen_name": {
+      "type": "string"
+    },
+    "theatre_id": {
+      "type": "string"
+    },
+    "screen_id": {
+      "type": "string"
+    },
+    "accessibility_mode": {
+      "type": "enumeration",
+      "enum": [
+        "AD",
+        "CC"
+      ]
+    },
+    "other_timestamps": {
+      "type": "json"
+    },
+    "language_details": {
+      "type": "json"
+    }
+  }
+}
