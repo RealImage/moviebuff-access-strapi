@@ -91,8 +91,12 @@ module.exports = {
         x['Description'] = item.attributes.description;
         x['WiFi Network ID'] = item.attributes.wifi_network_id;
         x['WiFi Password'] = item.attributes.wifi_password;
-        x['Theatre Location Coordinates'] = item.attributes.theatre_location.lat ? `${item.attributes.theatre_location.lat}, ${item.attributes.theatre_location.lng}` : '';
-        x['City'] = item.attributes.city;
+        x['Theatre Location Coordinates'] = (item?.attributes?.theatre_location && 
+            typeof item.attributes.theatre_location === 'object' && 
+            item.attributes.theatre_location !== null) 
+            ? `${item.attributes.theatre_location.lat}, ${item.attributes.theatre_location.lng}` 
+            : '';
+        x['City'] = item?.attributes?.city || '';
         x['Province'] = item.attributes.province;
         x['Country'] = item.attributes.country;
         const active = [];
@@ -145,9 +149,27 @@ module.exports = {
         x['Theatre ID'] = item.theatre_id;
         x['Screen Name'] = item.screen_name;
         x['Screen ID'] = item.screen_id;
+        x['Accessibility Mode'] = item.accessibility_mode;
+        
+        // Format other_timestamps
+        x['Audio Timestamps'] = Array.isArray(item.other_timestamps) ? 
+            item.other_timestamps.map(ts => 
+                `Action: ${ts.action || 'N/A'}, Timestamp: ${ts.timestamp || 'N/A'}`
+            ).join(' - ') : '';
+
+        // Format language_details
+        x['Language Timestamps'] = Array.isArray(item.language_details) ? 
+            item.language_details.map(lang => 
+                `Language: ${lang.language_code || 'N/A'}, Timestamp: ${lang.timestamp || 'N/A'}`
+            ).join(' - ') : '';
+
         composedData.push(x);
     });
-    const fields = ['Device ID', 'App Version', 'Session Start DateTime', 'Session End DateTime', 'OS', 'Theatre Name', 'Theatre ID', 'Screen Name', 'Screen ID'];
+    const fields = [
+        'Device ID', 'App Version', 'Session Start DateTime', 'Session End DateTime', 
+        'OS', 'Theatre Name', 'Theatre ID', 'Screen Name', 'Screen ID',
+        'Accessibility Mode', 'Audio Timestamps', 'Language Timestamps'
+    ];
     const opts = { fields };
     const csv = parse(composedData, opts);
     const formattedDate = new Date().toLocaleString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).replace(',', '').replace(/\//g, '-').replace(/:/g, '-').replace(' ', '_');
