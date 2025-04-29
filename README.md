@@ -35,8 +35,8 @@ This project leverages Strapi to serve as a headless CMS with custom API extensi
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/your-org/your-strapi-project.git
-   cd your-strapi-project
+   git clone https://github.com/ravikumar28/moviebuff-audio-backend.git
+   cd moviebuff-audio-backend
    ```
 
 2. **Install Dependencies**:
