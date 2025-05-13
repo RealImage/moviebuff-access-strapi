@@ -3,8 +3,8 @@ import axios from 'axios';
 
 const Dashboard = () => {
   const [message, setMessage] = useState('');
-  const strapiEndpoint = `http://qa-moviebuff-audio.moviebuff.com/api/custom-list-csv`;
-  const strapiEndpoint1 = `http://qa-moviebuff-audio.moviebuff.com/api/device-session-list-csv`;
+  const strapiEndpoint = `https://moviebuff-audio.moviebuff.com/api/custom-list-csv`;
+  const strapiEndpoint1 = `https://moviebuff-audio.moviebuff.com/api/device-session-list-csv`;
   // const strapiEndpoint = `${process.env.STRAPI_API_URL}/api/custom-list-csv`;
 
   const exportTheatres = async () => {
@@ -12,8 +12,7 @@ const Dashboard = () => {
     try {
       const response = await axios.get(strapiEndpoint, {
         headers: {
-          Authorization: `Bearer cf1386d70814be4c13df79a943a937a4c85c6fc0408639429dfe165a775ee02ac082b4f36dabb7e25d48d14a7173d7722435a51b4871f497ff02d5209b34d9f1b7fea1e961ae20ced2a2e06eb70c6dc51374aea2cbb4ee6009fe8466888870a3b0ac3e42c0720fa21e2c684ea4ff7add5f8b7d8636610fd12e2a4d827bdd93ef`,
-          // Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+          Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
         },
         responseType: 'blob', 
       });
@@ -42,8 +41,7 @@ const Dashboard = () => {
     try {
       const response = await axios.get(strapiEndpoint1, {
         headers: {
-          Authorization: `Bearer cf1386d70814be4c13df79a943a937a4c85c6fc0408639429dfe165a775ee02ac082b4f36dabb7e25d48d14a7173d7722435a51b4871f497ff02d5209b34d9f1b7fea1e961ae20ced2a2e06eb70c6dc51374aea2cbb4ee6009fe8466888870a3b0ac3e42c0720fa21e2c684ea4ff7add5f8b7d8636610fd12e2a4d827bdd93ef`,
-          // Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+          Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
         },
         responseType: 'blob', 
       });

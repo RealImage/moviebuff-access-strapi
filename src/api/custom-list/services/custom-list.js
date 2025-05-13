@@ -30,6 +30,7 @@ module.exports = {
         // );
         if (screen.ip_address && screen.ip_address !== '' && screen.ip_address !== null) {
           screen.ip_address = `http://${screen.ip_address}:4170`;
+	  //screen.ip_address = screen.ip_address;
         }
         if (screen_support === 'ad') {
           if (screen.audio_device_active_status) {

@@ -186,8 +186,8 @@ module.exports = {
       port: 465,
       secure: true,
       auth: {
-        user: "ravicse28@gmail.com",
-        pass: "pvex cqfv ehqp fvxv",
+        user: "mbaccessapp@moviebuff.com",
+        pass: process.env.GMAIL_PASSWORD,
       },
     });
     const htmlTemplate = `<html lang="en">
@@ -218,8 +218,8 @@ module.exports = {
       </body>
     </html>`;
     const info = transporter.sendMail({
-      from: '"Moviebuff Access: Error Report" <ravicse28@gmail.com>',
-      to: "ravi@nfnlabs.in, gajalakshme@nfnlabs.in, sowmithri@nfnlabs.in, gokulakrishnan@nfnlabs.in, hamsharaj@nfnlabs.in",
+      from: '"Moviebuff Access: Error Report" <mbaccessapp@moviebuff.com>',
+      to: "Manikandan.A@qubecinema.com, suvindh.ms@qubecinema.com, sowmithri@nfnlabs.in, gajalakshme@nfnlabs.in, mbaccessapp@moviebuff.com",
       subject: subject,
       text: message,
       html: htmlTemplate,
