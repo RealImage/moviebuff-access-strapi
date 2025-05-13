@@ -125,7 +125,9 @@ See: [Strapi Deployment Docs](https://docs.strapi.io/dev-docs/deployment) – Ad
 
 ## 🔍 API Reference
 
-All APIs require a JWT token unless specified as public.
+- **All APIs require a JWT token** unless specified as public.
+  
+- **API keys** can be created in the admin panel.
 
 ### Authenticated Example
 
@@ -139,20 +141,30 @@ Authorization: Bearer <jwt-token>
 
 - `https://dimensions.qubewire.com/v1/facilities/search?q=pvr&ps=150&offset=`
 
-**Custom APIs**:
+**Custom APIs**: 
 
-- `POST /api/device-sessions`
-- `PUT /api/device-sessions/277`
-- `GET /api/custom-list?location=12.980165450000001,80.22285056225584,10000000&search=LUXE`
-- `GET https://moviebuff-audio.moviebuff.com/api/custom-list-csv`
+Path: `src/api/custom-list/routes/custom-list.js`
+
+- `POST /api/device-sessions` - Post device session details
+- `PUT /api/device-sessions/277` - Update device session details
+- `GET /api/custom-list?location=12.980165450000001,80.22285056225584,10000000&search=LUXE` - Master theater list API. it returns the list of theaters based on the location and radius.
+- `GET https://moviebuff-audio.moviebuff.com/api/custom-list-csv` - Get theater list in CSV format
+- `GET https://moviebuff-audio.moviebuff.com/api/device-session-list-csv` - Get device session list in CSV format
+- `POST /api/logs` - Post logs through email
 
 ## ✅ Essential Notes
 
-- Base URL for admin: `https://moviebuff-audio.moviebuff.com/admin`
-- If **any changes** are made in API files:
-  1. Stop the PM2 process
-  2. Run the app in dev mode (`yarn develop` or `npm run develop`) to check changes
-  3. Then rebuild and restart using PM2:
+- **Base URL for admin**: `https://moviebuff-audio.moviebuff.com/admin`
+  
+- **If any changes are made in API files**:
+  1. **Stop the PM2 process**.
+  2. **Run the app in dev mode**:
+     ```bash
+     yarn develop
+     # or
+     npm run develop
+     ```
+  3. **Rebuild and restart using PM2**:
      ```bash
      yarn build
      pm2 restart <process-name>
