@@ -10,19 +10,6 @@ This project leverages Strapi to serve as a headless CMS with custom API extensi
 - Custom admin dashboard for content and reporting
 - Optimized APIs for frontend integration
 
-## 📅 Table of Contents
-
-- [Tech Stack](#tech-stack)
-- [Setup Instructions](#setup-instructions)
-- [Environment Variables](#environment-variables)
-- [Available Commands](#available-commands)
-- [Custom APIs](#custom-apis)
-- [Plugins](#plugins)
-- [Deployment](#deployment)
-- [API Reference](#api-reference)
-- [Contributing](#contributing)
-- [Essential Notes](#essential-notes)
-
 ## ⚖️ Tech Stack
 
 - **Strapi v4** – Headless CMS
@@ -65,10 +52,10 @@ Create a `.env` file with the following:
 ```
 HOST=0.0.0.0
 PORT=1337
-APP_KEYS=S5gUQN14dXw8xQSHtJ25vw==,IaQw57FqPA2cqwYYXzX1mg==,n674R4ips4QL7X7FhWlnkQ==,6hUuWDjgZts120F7r8FE/Q==
-API_TOKEN_SALT=KYtTyKGfvKRBWlP4jY5tlA==
-ADMIN_JWT_SECRET=3NFKaNLVjJ4siB3kT6nWww==
-TRANSFER_TOKEN_SALT=HSVo7Y2Ng1ljmyYMEhQkaQ==
+APP_KEYS=<APP_KEYS>
+API_TOKEN_SALT=<API_TOKEN_SALT>
+ADMIN_JWT_SECRET=<ADMIN_JWT_SECRET>
+TRANSFER_TOKEN_SALT=<TRANSFER_TOKEN_SALT>
 DATABASE_CLIENT=postgres
 DATABASE_USERNAME=postgres
 DATABASE_PASSWORD=<PASSWORD>
@@ -76,12 +63,12 @@ DATABASE_NAME=qa-q
 DATABASE_PORT=5432
 DATABASE_HOST=<HOST>
 DATABASE_SSL=false
-JWT_SECRET=N9BROp2FrB+r2e3j41r/gg==
+JWT_SECRET=<JWT_SECRET>
 STRAPI_API_TOKEN=<your-strapi-api-token>
 STRAPI_API_URL=http://qa-moviebuff-audio.moviebuff.com
 ```
 
-> **Note:** Replace `<PASSWORD>`, `<HOST>`, and `<your-strapi-api-token>` with actual values.
+> **Note:** Replace `<PASSWORD>`, `<HOST>`, `<your-strapi-api-token>`, `<APP_KEYS>`, `<API_TOKEN_SALT>`, `<ADMIN_JWT_SECRET>`, `<TRANSFER_TOKEN_SALT>`, `<JWT_SECRET>`, and `<your-strapi-api-token>` with actual values.
 
 ## 📋 Available Commands
 
