@@ -102,7 +102,7 @@ https://dimensions.qubewire.com/v1/facilities/search?tag=address.city.name:{city
 ```
 
 - `cityName` is extracted from the query.
-- MAIN LOGIC HERE: `strapi/src/plugins/theatre-search/admin/src/components/TheatreSearchField/index.js`
+- MAIN LOGIC HERE: `strapi/src/plugins/theatre-search/admin/src/components/TheatreSearchField/index.js`
 
 > Note: Uses **Location Field plugin** to fetch latitude/longitude. It occasionally causes issues, but is not a blocker.
 
@@ -178,6 +178,20 @@ For internal improvements:
 - Create a feature branch
 - Commit and push your changes
 - Create a PR within the private GitHub repository for review
+
+## ⚠️ Known Issues
+
+### Location Plugin Issue
+There's a known issue with the location plugin in Strapi that may affect location data. If you encounter problems related to location data, you can resolve it by running the following SQL query:
+
+```sql
+UPDATE theatres
+SET theatre_location = jsonb_build_object(
+    'lat', (theatre_location->>'lat')::float,
+    'lng', (theatre_location->>'lng')::float
+)
+WHERE theatre_location IS NOT NULL;
+```
 
 ---
 
